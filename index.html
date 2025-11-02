@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Exhibition</title>
+    <title>On the Memory of Travel - Photography Exhibition</title>
     <style>
         * {
             margin: 0;
@@ -33,6 +33,14 @@
             font-size: 2.5rem;
             font-weight: 300;
             letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header .photographers {
+            font-size: 1rem;
+            color: #aaa;
+            font-style: italic;
+            letter-spacing: 1px;
         }
 
         nav {
@@ -51,6 +59,44 @@
 
         nav a:hover {
             color: #aaa;
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .qr-section h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .qr-code-container {
+            display: inline-block;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .qr-download-btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .qr-download-btn:hover {
+            background: #333;
         }
 
         .container {
@@ -78,7 +124,7 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -118,14 +164,14 @@
         }
 
         .gallery-overlay h3 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            margin-bottom: 0.5rem;
         }
 
-        .gallery-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
+        .photo-number {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
         }
 
         .photo-detail {
@@ -144,12 +190,14 @@
         .photo-header h2 {
             font-size: 2.5rem;
             font-weight: 300;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .photo-header .subtitle {
-            color: #666;
-            font-size: 1.1rem;
+            color: #999;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .photo-content {
@@ -180,8 +228,29 @@
 
         .photo-info p {
             color: #666;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
+        }
+
+        .photo-meta {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .photo-meta div {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .photo-meta div:last-child {
+            margin-bottom: 0;
+        }
+
+        .photo-meta strong {
+            color: #333;
         }
 
         .purchase-section {
@@ -240,6 +309,30 @@
             color: #1a1a1a;
         }
 
+        .navigation-arrows {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .nav-arrow {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-arrow:hover {
+            color: #1a1a1a;
+        }
+
+        .nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
         footer {
             background: #1a1a1a;
             color: #fff;
@@ -275,7 +368,8 @@
 </head>
 <body>
     <header>
-        <h1>Photography Exhibition</h1>
+        <h1>On the Memory of Travel</h1>
+        <p class="photographers">Katerina Apostolidi & Kostas Tsanakas</p>
         <nav>
             <a href="#" onclick="showGallery(); return false;">Gallery</a>
             <a href="#about">About</a>
@@ -286,199 +380,401 @@
     <div id="gallery-view">
         <div class="container">
             <div class="intro">
-                <h2>Welcome to My Exhibition</h2>
-                <p>Explore a curated collection of photographic works capturing moments, emotions, and stories through the lens.</p>
+                <h2>An Exhibition in 24 Photographs</h2>
+                <p>A visual journey exploring memories, places, and the traces left behind by our travels.</p>
             </div>
 
-            <div class="gallery">
-                <div class="gallery-item" onclick="showPhoto(1)">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Mountain Landscapes">
-                    <div class="gallery-overlay">
-                        <h3>Mountain Landscapes</h3>
-                        <p>A series exploring alpine wilderness</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="showPhoto(2)">
-                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800" alt="Urban Geometries">
-                    <div class="gallery-overlay">
-                        <h3>Urban Geometries</h3>
-                        <p>Architectural abstractions from the city</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="showPhoto(3)">
-                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800" alt="Forest Whispers">
-                    <div class="gallery-overlay">
-                        <h3>Forest Whispers</h3>
-                        <p>Intimate moments in woodland settings</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="showPhoto(4)">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="Coastal Dreams">
-                    <div class="gallery-overlay">
-                        <h3>Coastal Dreams</h3>
-                        <p>Where the ocean meets the sky</p>
-                    </div>
-                </div>
+            <div class="gallery" id="gallery-grid">
+                <!-- Photos will be generated by JavaScript -->
             </div>
         </div>
     </div>
 
-    <div id="photo-1" class="photo-detail">
-        <div class="container">
-            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
-            
-            <div class="photo-header">
-                <h2>Mountain Landscapes</h2>
-                <p class="subtitle">A series exploring alpine wilderness</p>
-            </div>
-
-            <div class="photo-content">
-                <div class="photo-image">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200" alt="Mountain Landscapes">
-                </div>
-
-                <div class="photo-info">
-                    <h3>About This Series</h3>
-                    <p>This collection captures the raw beauty and majestic presence of mountain ranges across multiple seasons. Each photograph tells a story of nature's grandeur, from morning mist rolling over peaks to dramatic sunset alpenglow.</p>
-                    
-                    <p>Shot over the course of two years, these images represent countless hours of hiking, waiting for perfect light, and experiencing the profound solitude of high-altitude environments.</p>
-
-                    <div class="purchase-section">
-                        <h4>Purchase Options</h4>
-                        <div class="price">$150 - $500</div>
-                        <p style="color: #666; margin-bottom: 1.5rem;">Available in various print sizes and finishes</p>
-                        
-                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
-                        <a href="mailto:your.email@example.com?subject=Inquiry about Mountain Landscapes" class="btn btn-secondary">Email Inquiry</a>
-                        
-                        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #999;">All prints are professionally produced on archival-quality paper and come with certificate of authenticity.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="photo-2" class="photo-detail">
-        <div class="container">
-            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
-            
-            <div class="photo-header">
-                <h2>Urban Geometries</h2>
-                <p class="subtitle">Architectural abstractions from the city</p>
-            </div>
-
-            <div class="photo-content">
-                <div class="photo-image">
-                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200" alt="Urban Geometries">
-                </div>
-
-                <div class="photo-info">
-                    <h3>About This Series</h3>
-                    <p>An exploration of urban architecture through the lens of geometry and light. These images transform familiar cityscapes into abstract compositions, revealing patterns and shapes hidden in plain sight.</p>
-                    
-                    <p>The series celebrates the intersection of human design and natural light, capturing moments where shadows, reflections, and structures create unexpected visual poetry.</p>
-
-                    <div class="purchase-section">
-                        <h4>Purchase Options</h4>
-                        <div class="price">$200 - $600</div>
-                        <p style="color: #666; margin-bottom: 1.5rem;">Limited edition prints available</p>
-                        
-                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
-                        <a href="mailto:your.email@example.com?subject=Inquiry about Urban Geometries" class="btn btn-secondary">Email Inquiry</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="photo-3" class="photo-detail">
-        <div class="container">
-            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
-            
-            <div class="photo-header">
-                <h2>Forest Whispers</h2>
-                <p class="subtitle">Intimate moments in woodland settings</p>
-            </div>
-
-            <div class="photo-content">
-                <div class="photo-image">
-                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200" alt="Forest Whispers">
-                </div>
-
-                <div class="photo-info">
-                    <h3>About This Series</h3>
-                    <p>A meditative journey through ancient forests, capturing the quiet beauty of woodland ecosystems. These photographs invite viewers into moments of tranquility, where dappled light filters through canopies and mist weaves between trees.</p>
-                    
-                    <p>Each image is a study in patience and observation, revealing the subtle interactions between light, atmosphere, and the living forest.</p>
-
-                    <div class="purchase-section">
-                        <h4>Purchase Options</h4>
-                        <div class="price">$175 - $550</div>
-                        <p style="color: #666; margin-bottom: 1.5rem;">Museum-quality prints available</p>
-                        
-                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
-                        <a href="mailto:your.email@example.com?subject=Inquiry about Forest Whispers" class="btn btn-secondary">Email Inquiry</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="photo-4" class="photo-detail">
-        <div class="container">
-            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
-            
-            <div class="photo-header">
-                <h2>Coastal Dreams</h2>
-                <p class="subtitle">Where the ocean meets the sky</p>
-            </div>
-
-            <div class="photo-content">
-                <div class="photo-image">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200" alt="Coastal Dreams">
-                </div>
-
-                <div class="photo-info">
-                    <h3>About This Series</h3>
-                    <p>A contemplative series exploring the boundary between sea and sky. These images capture the ever-changing moods of coastal environments, from serene sunrises to dramatic storm approaches.</p>
-                    
-                    <p>The ocean's timeless rhythm and the infinite horizon become metaphors for reflection and possibility in these carefully composed seascapes.</p>
-
-                    <div class="purchase-section">
-                        <h4>Purchase Options</h4>
-                        <div class="price">$150 - $500</div>
-                        <p style="color: #666; margin-bottom: 1.5rem;">Various sizes available</p>
-                        
-                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
-                        <a href="mailto:your.email@example.com?subject=Inquiry about Coastal Dreams" class="btn btn-secondary">Email Inquiry</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="photo-details-container">
+        <!-- Photo details will be generated by JavaScript -->
     </div>
 
     <footer>
-        <p>&copy; 2024 Photography Exhibition. All rights reserved.</p>
+        <p>&copy; 2025 "On the Memory of Travel" - Katerina Apostolidi & Kostas Tsanakas. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
+        // Photo data - customize this array with your actual photos
+        const photos = [
+            {
+                id: 1,
+                title: "Untitled No. 1",
+                location: "Location Name",
+                year: "2024",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
+                price: "$250"
+            },
+            {
+                id: 2,
+                title: "Untitled No. 2",
+                location: "Location Name",
+                year: "2024",
+                description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200",
+                price: "$250"
+            },
+            {
+                id: 3,
+                title: "Untitled No. 3",
+                location: "Location Name",
+                year: "2024",
+                description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
+                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200",
+                price: "$250"
+            },
+            {
+                id: 4,
+                title: "Untitled No. 4",
+                location: "Location Name",
+                year: "2024",
+                description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.",
+                image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 5,
+                title: "Untitled No. 5",
+                location: "Location Name",
+                year: "2024",
+                description: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1200",
+                price: "$250"
+            },
+            {
+                id: 6,
+                title: "Untitled No. 6",
+                location: "Location Name",
+                year: "2024",
+                description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 7,
+                title: "Untitled No. 7",
+                location: "Location Name",
+                year: "2024",
+                description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 8,
+                title: "Untitled No. 8",
+                location: "Location Name",
+                year: "2024",
+                description: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 9,
+                title: "Untitled No. 9",
+                location: "Location Name",
+                year: "2024",
+                description: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat.",
+                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=1200",
+                price: "$250"
+            },
+            {
+                id: 10,
+                title: "Untitled No. 10",
+                location: "Location Name",
+                year: "2024",
+                description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.",
+                image: "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200",
+                price: "$250"
+            },
+            {
+                id: 11,
+                title: "Untitled No. 11",
+                location: "Location Name",
+                year: "2024",
+                description: "Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200",
+                price: "$250"
+            },
+            {
+                id: 12,
+                title: "Untitled No. 12",
+                location: "Location Name",
+                year: "2024",
+                description: "Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200",
+                price: "$250"
+            },
+            {
+                id: 13,
+                title: "Untitled No. 13",
+                location: "Location Name",
+                year: "2024",
+                description: "Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+                image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200",
+                price: "$250"
+            },
+            {
+                id: 14,
+                title: "Untitled No. 14",
+                location: "Location Name",
+                year: "2024",
+                description: "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
+                price: "$250"
+            },
+            {
+                id: 15,
+                title: "Untitled No. 15",
+                location: "Location Name",
+                year: "2024",
+                description: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
+                image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200",
+                price: "$250"
+            },
+            {
+                id: 16,
+                title: "Untitled No. 16",
+                location: "Location Name",
+                year: "2024",
+                description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+                image: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 17,
+                title: "Untitled No. 17",
+                location: "Location Name",
+                year: "2024",
+                description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1200",
+                price: "$250"
+            },
+            {
+                id: 18,
+                title: "Untitled No. 18",
+                location: "Location Name",
+                year: "2024",
+                description: "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.",
+                image: "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?w=1200",
+                price: "$250"
+            },
+            {
+                id: 19,
+                title: "Untitled No. 19",
+                location: "Location Name",
+                year: "2024",
+                description: "Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Sed ut perspiciatis unde omnis iste natus error.",
+                image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1200",
+                price: "$250"
+            },
+            {
+                id: 20,
+                title: "Untitled No. 20",
+                location: "Location Name",
+                year: "2024",
+                description: "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.",
+                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 21,
+                title: "Untitled No. 21",
+                location: "Location Name",
+                year: "2024",
+                description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
+                price: "$250"
+            },
+            {
+                id: 22,
+                title: "Untitled No. 22",
+                location: "Location Name",
+                year: "2024",
+                description: "Qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 23,
+                title: "Untitled No. 23",
+                location: "Location Name",
+                year: "2024",
+                description: "Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.",
+                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 24,
+                title: "Untitled No. 24",
+                location: "Location Name",
+                year: "2024",
+                description: "Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit.",
+                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=1200",
+                price: "$250"
+            }
+        ];
+
+        // Generate gallery items
+        function generateGallery() {
+            const gallery = document.getElementById('gallery-grid');
+            photos.forEach(photo => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.onclick = () => showPhoto(photo.id);
+                item.innerHTML = `
+                    <img src="${photo.image}" alt="${photo.title}">
+                    <div class="gallery-overlay">
+                        <div class="photo-number">Photo ${photo.id} of 24</div>
+                        <h3>${photo.title}</h3>
+                    </div>
+                `;
+                gallery.appendChild(item);
+            });
+        }
+
+        // Generate photo detail pages
+        function generatePhotoDetails() {
+            const container = document.getElementById('photo-details-container');
+            photos.forEach(photo => {
+                const prevId = photo.id > 1 ? photo.id - 1 : null;
+                const nextId = photo.id < photos.length ? photo.id + 1 : null;
+                
+                const detail = document.createElement('div');
+                detail.id = `photo-${photo.id}`;
+                detail.className = 'photo-detail';
+                detail.innerHTML = `
+                    <div class="container">
+                        <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
+                        
+                        <div class="photo-header">
+                            <h2>${photo.title}</h2>
+                            <p class="subtitle">Photo ${photo.id} of 24</p>
+                        </div>
+
+                        <div class="photo-content">
+                            <div class="photo-image">
+                                <img src="${photo.image}" alt="${photo.title}">
+                            </div>
+
+                            <div class="photo-info">
+                                <div class="photo-meta">
+                                    <div><strong>Location:</strong> ${photo.location}</div>
+                                    <div><strong>Year:</strong> ${photo.year}</div>
+                                    <div><strong>Photographers:</strong> Katerina Apostolidi & Kostas Tsanakas</div>
+                                </div>
+
+                                <h3>About This Photograph</h3>
+                                <p>${photo.description}</p>
+
+                                <div class="qr-section">
+                                    <h3>QR Code for This Photo</h3>
+                                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Scan to view this photo on your device</p>
+                                    <div class="qr-code-container">
+                                        <div id="qrcode-${photo.id}"></div>
+                                    </div>
+                                    <br>
+                                    <a href="#" class="qr-download-btn" onclick="downloadQR(${photo.id}, '${photo.title}'); return false;">Download QR Code</a>
+                                </div>
+
+                                <div class="purchase-section">
+                                    <h4>Purchase This Print</h4>
+                                    <div class="price">${photo.price}</div>
+                                    <p style="color: #666; margin-bottom: 1.5rem;">Available in various print sizes</p>
+                                    
+                                    <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
+                                    <a href="mailto:your.email@example.com?subject=Inquiry about ${photo.title}" class="btn btn-secondary">Email Inquiry</a>
+                                    
+                                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #999;">All prints are professionally produced on archival-quality paper.</p>
+                                </div>
+
+                                <div class="navigation-arrows">
+                                    <a href="#" class="nav-arrow ${!prevId ? 'disabled' : ''}" onclick="${prevId ? `showPhoto(${prevId}); return false;` : 'return false;'}">
+                                        ${prevId ? `← Previous: ${photos[prevId-1].title}` : ''}
+                                    </a>
+                                    <a href="#" class="nav-arrow ${!nextId ? 'disabled' : ''}" onclick="${nextId ? `showPhoto(${nextId}); return false;` : 'return false;'}">
+                                        ${nextId ? `Next: ${photos[nextId-1].title} →` : ''}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(detail);
+            });
+        }
+
         function showPhoto(id) {
             document.getElementById('gallery-view').style.display = 'none';
-            const photos = document.querySelectorAll('.photo-detail');
-            photos.forEach(p => p.classList.remove('active'));
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
             document.getElementById('photo-' + id).classList.add('active');
             window.scrollTo(0, 0);
         }
 
         function showGallery() {
             document.getElementById('gallery-view').style.display = 'block';
-            const photos = document.querySelectorAll('.photo-detail');
-            photos.forEach(p => p.classList.remove('active'));
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
             window.scrollTo(0, 0);
         }
+
+        // Generate QR codes for each photo
+        function generateQRCodes() {
+            const baseUrl = window.location.origin + window.location.pathname;
+            photos.forEach(photo => {
+                const photoUrl = `${baseUrl}?photo=${photo.id}`;
+                new QRCode(document.getElementById(`qrcode-${photo.id}`), {
+                    text: photoUrl,
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            });
+        }
+
+        // Download QR code as image
+        function downloadQR(photoId, photoTitle) {
+            const qrContainer = document.getElementById(`qrcode-${photoId}`);
+            const canvas = qrContainer.querySelector('canvas');
+            if (canvas) {
+                const url = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = `QR-${photoTitle.replace(/\s+/g, '-')}.png`;
+                link.href = url;
+                link.click();
+            }
+        }
+
+        // Check if URL has a photo parameter and show that photo
+        function checkUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const photoId = urlParams.get('photo');
+            if (photoId && photoId >= 1 && photoId <= photos.length) {
+                showPhoto(parseInt(photoId));
+            }
+        }
+
+        // Initialize on page load
+        generateGallery();
+        generatePhotoDetails();
+        
+        // Wait for QRCode library to load, then generate QR codes
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                if (typeof QRCode !== 'undefined') {
+                    generateQRCodes();
+                    checkUrlParams();
+                }
+            }, 100);
+        });
     </script>
 </body>
 </html>
