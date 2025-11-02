@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Exhibition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #aaa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #f5f5f5;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            color: #fff;
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .photo-detail {
+            display: none;
+        }
+
+        .photo-detail.active {
+            display: block;
+        }
+
+        .photo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .photo-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .photo-header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .photo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .photo-image {
+            background: #f5f5f5;
+            aspect-ratio: 4/3;
+            position: sticky;
+            top: 120px;
+        }
+
+        .photo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .photo-info p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .purchase-section {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .purchase-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .price {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        .btn-secondary {
+            background: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #888;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #1a1a1a;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-content {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-image {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Photography Exhibition</h1>
+        <nav>
+            <a href="#" onclick="showGallery(); return false;">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div id="gallery-view">
+        <div class="container">
+            <div class="intro">
+                <h2>Welcome to My Exhibition</h2>
+                <p>Explore a curated collection of photographic works capturing moments, emotions, and stories through the lens.</p>
+            </div>
+
+            <div class="gallery">
+                <div class="gallery-item" onclick="showPhoto(1)">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Mountain Landscapes">
+                    <div class="gallery-overlay">
+                        <h3>Mountain Landscapes</h3>
+                        <p>A series exploring alpine wilderness</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="showPhoto(2)">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800" alt="Urban Geometries">
+                    <div class="gallery-overlay">
+                        <h3>Urban Geometries</h3>
+                        <p>Architectural abstractions from the city</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="showPhoto(3)">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800" alt="Forest Whispers">
+                    <div class="gallery-overlay">
+                        <h3>Forest Whispers</h3>
+                        <p>Intimate moments in woodland settings</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="showPhoto(4)">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="Coastal Dreams">
+                    <div class="gallery-overlay">
+                        <h3>Coastal Dreams</h3>
+                        <p>Where the ocean meets the sky</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="photo-1" class="photo-detail">
+        <div class="container">
+            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
+            
+            <div class="photo-header">
+                <h2>Mountain Landscapes</h2>
+                <p class="subtitle">A series exploring alpine wilderness</p>
+            </div>
+
+            <div class="photo-content">
+                <div class="photo-image">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200" alt="Mountain Landscapes">
+                </div>
+
+                <div class="photo-info">
+                    <h3>About This Series</h3>
+                    <p>This collection captures the raw beauty and majestic presence of mountain ranges across multiple seasons. Each photograph tells a story of nature's grandeur, from morning mist rolling over peaks to dramatic sunset alpenglow.</p>
+                    
+                    <p>Shot over the course of two years, these images represent countless hours of hiking, waiting for perfect light, and experiencing the profound solitude of high-altitude environments.</p>
+
+                    <div class="purchase-section">
+                        <h4>Purchase Options</h4>
+                        <div class="price">$150 - $500</div>
+                        <p style="color: #666; margin-bottom: 1.5rem;">Available in various print sizes and finishes</p>
+                        
+                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
+                        <a href="mailto:your.email@example.com?subject=Inquiry about Mountain Landscapes" class="btn btn-secondary">Email Inquiry</a>
+                        
+                        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #999;">All prints are professionally produced on archival-quality paper and come with certificate of authenticity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="photo-2" class="photo-detail">
+        <div class="container">
+            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
+            
+            <div class="photo-header">
+                <h2>Urban Geometries</h2>
+                <p class="subtitle">Architectural abstractions from the city</p>
+            </div>
+
+            <div class="photo-content">
+                <div class="photo-image">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200" alt="Urban Geometries">
+                </div>
+
+                <div class="photo-info">
+                    <h3>About This Series</h3>
+                    <p>An exploration of urban architecture through the lens of geometry and light. These images transform familiar cityscapes into abstract compositions, revealing patterns and shapes hidden in plain sight.</p>
+                    
+                    <p>The series celebrates the intersection of human design and natural light, capturing moments where shadows, reflections, and structures create unexpected visual poetry.</p>
+
+                    <div class="purchase-section">
+                        <h4>Purchase Options</h4>
+                        <div class="price">$200 - $600</div>
+                        <p style="color: #666; margin-bottom: 1.5rem;">Limited edition prints available</p>
+                        
+                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
+                        <a href="mailto:your.email@example.com?subject=Inquiry about Urban Geometries" class="btn btn-secondary">Email Inquiry</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="photo-3" class="photo-detail">
+        <div class="container">
+            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
+            
+            <div class="photo-header">
+                <h2>Forest Whispers</h2>
+                <p class="subtitle">Intimate moments in woodland settings</p>
+            </div>
+
+            <div class="photo-content">
+                <div class="photo-image">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200" alt="Forest Whispers">
+                </div>
+
+                <div class="photo-info">
+                    <h3>About This Series</h3>
+                    <p>A meditative journey through ancient forests, capturing the quiet beauty of woodland ecosystems. These photographs invite viewers into moments of tranquility, where dappled light filters through canopies and mist weaves between trees.</p>
+                    
+                    <p>Each image is a study in patience and observation, revealing the subtle interactions between light, atmosphere, and the living forest.</p>
+
+                    <div class="purchase-section">
+                        <h4>Purchase Options</h4>
+                        <div class="price">$175 - $550</div>
+                        <p style="color: #666; margin-bottom: 1.5rem;">Museum-quality prints available</p>
+                        
+                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
+                        <a href="mailto:your.email@example.com?subject=Inquiry about Forest Whispers" class="btn btn-secondary">Email Inquiry</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="photo-4" class="photo-detail">
+        <div class="container">
+            <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
+            
+            <div class="photo-header">
+                <h2>Coastal Dreams</h2>
+                <p class="subtitle">Where the ocean meets the sky</p>
+            </div>
+
+            <div class="photo-content">
+                <div class="photo-image">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200" alt="Coastal Dreams">
+                </div>
+
+                <div class="photo-info">
+                    <h3>About This Series</h3>
+                    <p>A contemplative series exploring the boundary between sea and sky. These images capture the ever-changing moods of coastal environments, from serene sunrises to dramatic storm approaches.</p>
+                    
+                    <p>The ocean's timeless rhythm and the infinite horizon become metaphors for reflection and possibility in these carefully composed seascapes.</p>
+
+                    <div class="purchase-section">
+                        <h4>Purchase Options</h4>
+                        <div class="price">$150 - $500</div>
+                        <p style="color: #666; margin-bottom: 1.5rem;">Various sizes available</p>
+                        
+                        <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
+                        <a href="mailto:your.email@example.com?subject=Inquiry about Coastal Dreams" class="btn btn-secondary">Email Inquiry</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Photography Exhibition. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showPhoto(id) {
+            document.getElementById('gallery-view').style.display = 'none';
+            const photos = document.querySelectorAll('.photo-detail');
+            photos.forEach(p => p.classList.remove('active'));
+            document.getElementById('photo-' + id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showGallery() {
+            document.getElementById('gallery-view').style.display = 'block';
+            const photos = document.querySelectorAll('.photo-detail');
+            photos.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
