@@ -276,6 +276,8 @@
             border-radius: 4px;
             font-size: 0.9rem;
             transition: background 0.3s;
+            cursor: pointer;
+            border: none;
         }
 
         .qr-download-btn:hover {
@@ -646,4 +648,519 @@
                     <h3 data-en="About Myxa" data-de="Über Myxa">About Myxa</h3>
                     <p data-en="Myxa is a cozy Greek-Mediterranean café-bistro located in the heart of Neukölln, Berlin. Since 2011, this charming corner café with its two big windows has been more than just a place to eat and drink—it's become a cultural hub where art, community, and authentic Greek flavors come together." data-de="Myxa ist ein gemütliches griechisch-mediterranes Café-Bistro im Herzen von Neukölln, Berlin. Seit 2011 ist dieses charmante Eckcafé mit seinen zwei großen Fenstern mehr als nur ein Ort zum Essen und Trinken – es ist zu einem kulturellen Zentrum geworden, wo Kunst, Gemeinschaft und authentische griechische Aromen zusammenkommen.">Myxa is a cozy Greek-Mediterranean café-bistro located in the heart of Neukölln, Berlin. Since 2011, this charming corner café with its two big windows has been more than just a place to eat and drink—it's become a cultural hub where art, community, and authentic Greek flavors come together.</p>
                     
-                    <p data-en="The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors, Myxa offers a warm and welcoming atmosphere." data-de="Das Café ist bekannt für seine hausgemachte griechisch-mediterrane Küche mit authentischen Zutaten aus Kreta, darunter natives Olivenöl extra und handverlesene Tees und Kräuter. Mit seinem schönen Interieur im Berliner Stil der 1920er Jahre, handgefertigten Möbeln und Holzböden bietet Myxa eine warme und einladende Atmosphäre.">The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors
+                    <p data-en="The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors, Myxa offers a warm and welcoming atmosphere." data-de="Das Café ist bekannt für seine hausgemachte griechisch-mediterrane Küche mit authentischen Zutaten aus Kreta, darunter natives Olivenöl extra und handverlesene Tees und Kräuter. Mit seinem schönen Interieur im Berliner Stil der 1920er Jahre, handgefertigten Möbeln und Holzböden bietet Myxa eine warme und einladende Atmosphäre.">The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors, Myxa offers a warm and welcoming atmosphere.</p>
+                    
+                    <p data-en="Beyond serving delicious food and excellent coffee from KUDU Coffee Roasters, Myxa regularly hosts art exhibitions, live music events, and cultural gatherings, making it the perfect venue for "On the Memory of Travel."" data-de="Neben köstlichem Essen und exzellentem Kaffee von KUDU Coffee Roasters beherbergt Myxa regelmäßig Kunstausstellungen, Live-Musikveranstaltungen und kulturelle Zusammenkünfte und ist damit der perfekte Veranstaltungsort für „On the Memory of Travel".">Beyond serving delicious food and excellent coffee from KUDU Coffee Roasters, Myxa regularly hosts art exhibitions, live music events, and cultural gatherings, making it the perfect venue for "On the Memory of Travel."</p>
+
+                    <div class="venue-details">
+                        <p><strong data-en="Address:" data-de="Adresse:">Address:</strong><br>
+                        Lenaustraße 22<br>
+                        12047 Berlin, Germany</p>
+                        
+                        <p><strong data-en="Phone:" data-de="Telefon:">Phone:</strong><br>
+                        +49 30 68324447</p>
+
+                        <div class="venue-map">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.0775!2d13.4273!3d52.4859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84fb3e8c3c6e3%3A0x9d3f3f3f3f3f3f3f!2sMyxa!5e0!3m2!1sen!2sde!4v1234567890" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0; border-radius: 8px; margin-top: 1rem;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+
+                        <a href="https://myxaberlin.de/" target="_blank" class="btn" style="margin-top: 1.5rem;" data-en="Visit Myxa Website" data-de="Myxa Website besuchen">Visit Myxa Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="photo-details-container">
+        <!-- Photo details will be generated by JavaScript -->
+    </div>
+
+    <footer>
+        <p>&copy; 2025 "On the Memory of Travel" - Katerina Apostolidi & Kostas Tsanakas. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        let currentLang = 'en';
+
+        // Photo data - customize this array with your actual photos
+        const photos = [
+            {
+                id: 1,
+                title: "Untitled No. 1",
+                location: "Location Name",
+                year: "2024",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
+                price: "$250"
+            },
+            {
+                id: 2,
+                title: "Untitled No. 2",
+                location: "Location Name",
+                year: "2024",
+                description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200",
+                price: "$250"
+            },
+            {
+                id: 3,
+                title: "Untitled No. 3",
+                location: "Location Name",
+                year: "2024",
+                description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
+                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200",
+                price: "$250"
+            },
+            {
+                id: 4,
+                title: "Untitled No. 4",
+                location: "Location Name",
+                year: "2024",
+                description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.",
+                image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 5,
+                title: "Untitled No. 5",
+                location: "Location Name",
+                year: "2024",
+                description: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1200",
+                price: "$250"
+            },
+            {
+                id: 6,
+                title: "Untitled No. 6",
+                location: "Location Name",
+                year: "2024",
+                description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 7,
+                title: "Untitled No. 7",
+                location: "Location Name",
+                year: "2024",
+                description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 8,
+                title: "Untitled No. 8",
+                location: "Location Name",
+                year: "2024",
+                description: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 9,
+                title: "Untitled No. 9",
+                location: "Location Name",
+                year: "2024",
+                description: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat.",
+                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=1200",
+                price: "$250"
+            },
+            {
+                id: 10,
+                title: "Untitled No. 10",
+                location: "Location Name",
+                year: "2024",
+                description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.",
+                image: "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200",
+                price: "$250"
+            },
+            {
+                id: 11,
+                title: "Untitled No. 11",
+                location: "Location Name",
+                year: "2024",
+                description: "Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200",
+                price: "$250"
+            },
+            {
+                id: 12,
+                title: "Untitled No. 12",
+                location: "Location Name",
+                year: "2024",
+                description: "Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200",
+                price: "$250"
+            },
+            {
+                id: 13,
+                title: "Untitled No. 13",
+                location: "Location Name",
+                year: "2024",
+                description: "Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+                image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200",
+                price: "$250"
+            },
+            {
+                id: 14,
+                title: "Untitled No. 14",
+                location: "Location Name",
+                year: "2024",
+                description: "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
+                price: "$250"
+            },
+            {
+                id: 15,
+                title: "Untitled No. 15",
+                location: "Location Name",
+                year: "2024",
+                description: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
+                image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200",
+                price: "$250"
+            },
+            {
+                id: 16,
+                title: "Untitled No. 16",
+                location: "Location Name",
+                year: "2024",
+                description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+                image: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 17,
+                title: "Untitled No. 17",
+                location: "Location Name",
+                year: "2024",
+                description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1200",
+                price: "$250"
+            },
+            {
+                id: 18,
+                title: "Untitled No. 18",
+                location: "Location Name",
+                year: "2024",
+                description: "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.",
+                image: "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?w=1200",
+                price: "$250"
+            },
+            {
+                id: 19,
+                title: "Untitled No. 19",
+                location: "Location Name",
+                year: "2024",
+                description: "Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Sed ut perspiciatis unde omnis iste natus error.",
+                image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1200",
+                price: "$250"
+            },
+            {
+                id: 20,
+                title: "Untitled No. 20",
+                location: "Location Name",
+                year: "2024",
+                description: "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.",
+                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 21,
+                title: "Untitled No. 21",
+                location: "Location Name",
+                year: "2024",
+                description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
+                price: "$250"
+            },
+            {
+                id: 22,
+                title: "Untitled No. 22",
+                location: "Location Name",
+                year: "2024",
+                description: "Qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 23,
+                title: "Untitled No. 23",
+                location: "Location Name",
+                year: "2024",
+                description: "Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.",
+                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200",
+                price: "$250"
+            },
+            {
+                id: 24,
+                title: "Untitled No. 24",
+                location: "Location Name",
+                year: "2024",
+                description: "Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit.",
+                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=1200",
+                price: "$250"
+            }
+        ];
+
+        // Generate gallery items
+        function generateGallery() {
+            const gallery = document.getElementById('gallery-grid');
+            photos.forEach(photo => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.onclick = () => showPhoto(photo.id);
+                item.innerHTML = `
+                    <img src="${photo.image}" alt="${photo.title}">
+                    <div class="gallery-overlay">
+                        <div class="photo-number" data-photo-num="${photo.id}">Photo ${photo.id} of 24</div>
+                        <h3>${photo.title}</h3>
+                    </div>
+                `;
+                gallery.appendChild(item);
+            });
+        }
+
+        // Generate photo detail pages
+        function generatePhotoDetails() {
+            const container = document.getElementById('photo-details-container');
+            photos.forEach(photo => {
+                const prevId = photo.id > 1 ? photo.id - 1 : null;
+                const nextId = photo.id < photos.length ? photo.id + 1 : null;
+                
+                const detail = document.createElement('div');
+                detail.id = `photo-${photo.id}`;
+                detail.className = 'photo-detail';
+                detail.innerHTML = `
+                    <div class="container">
+                        <a href="#" class="back-link" onclick="showGallery(); return false;" data-en="← Back to Gallery" data-de="← Zurück zur Galerie">← Back to Gallery</a>
+                        
+                        <div class="photo-header">
+                            <h2>${photo.title}</h2>
+                            <p class="subtitle" data-photo-num="${photo.id}">Photo ${photo.id} of 24</p>
+                        </div>
+
+                        <div class="photo-content">
+                            <div class="photo-image">
+                                <img src="${photo.image}" alt="${photo.title}">
+                            </div>
+
+                            <div class="photo-info">
+                                <div class="photo-meta">
+                                    <div><strong data-en="Location:" data-de="Ort:">Location:</strong> ${photo.location}</div>
+                                    <div><strong data-en="Year:" data-de="Jahr:">Year:</strong> ${photo.year}</div>
+                                    <div><strong data-en="Photographers:" data-de="Fotografen:">Photographers:</strong> Katerina Apostolidi & Kostas Tsanakas</div>
+                                </div>
+
+                                <h3 data-en="About This Photograph" data-de="Über diese Fotografie">About This Photograph</h3>
+                                <p>${photo.description}</p>
+
+                                <div class="qr-section">
+                                    <h3 data-en="QR Code for This Photo" data-de="QR-Code für dieses Foto">QR Code for This Photo</h3>
+                                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;" data-en="Scan to view this photo on your device" data-de="Scannen Sie, um dieses Foto auf Ihrem Gerät anzuzeigen">Scan to view this photo on your device</p>
+                                    <div class="qr-code-container">
+                                        <div id="qrcode-${photo.id}"></div>
+                                    </div>
+                                    <br>
+                                    <button class="qr-download-btn" onclick="downloadQR(${photo.id}, '${photo.title}'); return false;" data-en="Download QR Code" data-de="QR-Code herunterladen">Download QR Code</button>
+                                </div>
+
+                                <div class="purchase-section">
+                                    <h4 data-en="Purchase This Print" data-de="Diesen Druck kaufen">Purchase This Print</h4>
+                                    <div class="price">${photo.price}</div>
+                                    <p style="color: #666; margin-bottom: 1.5rem;" data-en="Available in various print sizes" data-de="Erhältlich in verschiedenen Druckgrößen">Available in various print sizes</p>
+                                    
+                                    <a href="https://paypal.me/yourlink" class="btn" target="_blank" data-en="Buy via PayPal" data-de="Über PayPal kaufen">Buy via PayPal</a>
+                                    <a href="mailto:your.email@example.com?subject=Inquiry about ${photo.title}" class="btn btn-secondary" data-en="Email Inquiry" data-de="E-Mail Anfrage">Email Inquiry</a>
+                                    
+                                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #999;" data-en="All prints are professionally produced on archival-quality paper." data-de="Alle Drucke werden professionell auf Archivpapier produziert.">All prints are professionally produced on archival-quality paper.</p>
+                                </div>
+
+                                <div class="navigation-arrows">
+                                    <a href="#" class="nav-arrow ${!prevId ? 'disabled' : ''}" onclick="${prevId ? `showPhoto(${prevId}); return false;` : 'return false;'}">
+                                        ${prevId ? `<span data-en="← Previous: ${photos[prevId-1].title}" data-de="← Zurück: ${photos[prevId-1].title}">← Previous: ${photos[prevId-1].title}</span>` : ''}
+                                    </a>
+                                    <a href="#" class="nav-arrow ${!nextId ? 'disabled' : ''}" onclick="${nextId ? `showPhoto(${nextId}); return false;` : 'return false;'}">
+                                        ${nextId ? `<span data-en="Next: ${photos[nextId-1].title} →" data-de="Weiter: ${photos[nextId-1].title} →">Next: ${photos[nextId-1].title} →</span>` : ''}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(detail);
+            });
+        }
+
+        function showPhoto(id) {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            document.getElementById('photo-' + id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showGallery() {
+            document.getElementById('gallery-view').style.display = 'block';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        function showPhotographers() {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'block';
+            document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        function showCurator() {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'block';
+            document.getElementById('curator-note-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        function showCuratorNote() {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'block';
+            document.getElementById('myxa-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        function showMyxa() {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'block';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        // Generate QR codes for each photo
+        function generateQRCodes() {
+            const baseUrl = window.location.origin + window.location.pathname;
+            photos.forEach(photo => {
+                const photoUrl = `${baseUrl}?photo=${photo.id}`;
+                new QRCode(document.getElementById(`qrcode-${photo.id}`), {
+                    text: photoUrl,
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            });
+        }
+
+        // Download QR code as image
+        function downloadQR(photoId, photoTitle) {
+            const qrContainer = document.getElementById(`qrcode-${photoId}`);
+            const canvas = qrContainer.querySelector('canvas');
+            if (canvas) {
+                const url = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = `QR-${photoTitle.replace(/\s+/g, '-')}.png`;
+                link.href = url;
+                link.click();
+            }
+        }
+
+        // Check if URL has a photo parameter and show that photo
+        function checkUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const photoId = urlParams.get('photo');
+            if (photoId && photoId >= 1 && photoId <= photos.length) {
+                showPhoto(parseInt(photoId));
+            }
+        }
+
+        // Language switching functionality
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-de').classList.toggle('active', lang === 'de');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-en][data-de]').forEach(el => {
+                const text = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-de');
+                if (text) {
+                    el.textContent = text;
+                }
+            });
+            
+            // Update photo labels
+            updatePhotoLabels();
+        }
+
+        function updatePhotoLabels() {
+            const photoOfText = currentLang === 'en' ? 'Photo' : 'Foto';
+            const ofText = currentLang === 'en' ? 'of' : 'von';
+            
+            document.querySelectorAll('.photo-number').forEach(el => {
+                const num = el.getAttribute('data-photo-num');
+                if (num) {
+                    el.textContent = `${photoOfText} ${num} ${ofText} 24`;
+                }
+            });
+            
+            document.querySelectorAll('.subtitle').forEach(el => {
+                const num = el.getAttribute('data-photo-num');
+                if (num) {
+                    el.textContent = `${photoOfText} ${num} ${ofText} 24`;
+                }
+            });
+        }
+
+        // Initialize on page load
+        generateGallery();
+        generatePhotoDetails();
+        
+        // Detect browser language and set initial language
+        const browserLang = navigator.language || navigator.userLanguage;
+        const initialLang = browserLang.startsWith('de') ? 'de' : 'en';
+        setLanguage(initialLang);
+        
+        // Wait for QRCode library to load, then generate QR codes
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                if (typeof QRCode !== 'undefined') {
+                    generateQRCodes();
+                    checkUrlParams();
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
