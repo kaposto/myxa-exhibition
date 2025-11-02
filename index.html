@@ -43,6 +43,35 @@
             letter-spacing: 1px;
         }
 
+        .language-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .language-toggle button {
+            background: transparent;
+            border: 1px solid #666;
+            color: #aaa;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .language-toggle button.active {
+            background: #fff;
+            color: #1a1a1a;
+            border-color: #fff;
+        }
+
+        .language-toggle button:hover {
+            border-color: #aaa;
+        }
+
         nav {
             margin-top: 1rem;
         }
@@ -59,44 +88,6 @@
 
         nav a:hover {
             color: #aaa;
-        }
-
-        .qr-section {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-            background: #f9f9f9;
-            border-radius: 8px;
-        }
-
-        .qr-section h3 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .qr-code-container {
-            display: inline-block;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .qr-download-btn {
-            margin-top: 1rem;
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: #1a1a1a;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-
-        .qr-download-btn:hover {
-            background: #333;
         }
 
         .container {
@@ -253,6 +244,44 @@
             color: #333;
         }
 
+        .qr-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .qr-section h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .qr-code-container {
+            display: inline-block;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .qr-download-btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .qr-download-btn:hover {
+            background: #333;
+        }
+
         .purchase-section {
             background: #f9f9f9;
             padding: 2rem;
@@ -371,28 +400,6 @@
             margin: 0 auto;
         }
 
-        .venue-main-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-
-        .venue-image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .venue-image-grid img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
         .venue-info h3 {
             font-size: 1.8rem;
             font-weight: 400;
@@ -448,17 +455,6 @@
             text-align: right;
         }
 
-        @media (max-width: 768px) {
-            .photographer-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .photographer-photo {
-                margin: 0 auto 1.5rem;
-            }
-        }
-
         .navigation-arrows {
             display: flex;
             justify-content: space-between;
@@ -496,6 +492,14 @@
                 font-size: 1.8rem;
             }
 
+            .language-toggle {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+
             nav a {
                 display: block;
                 margin: 0.5rem 0;
@@ -513,18 +517,31 @@
                 position: relative;
                 top: 0;
             }
+
+            .photographer-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .photographer-photo {
+                margin: 0 auto 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>On the Memory of Travel</h1>
+        <div class="language-toggle">
+            <button onclick="setLanguage('en')" id="lang-en">EN</button>
+            <button onclick="setLanguage('de')" id="lang-de">DE</button>
+        </div>
+        <h1 data-en="On the Memory of Travel" data-de="Über die Erinnerung an das Reisen">On the Memory of Travel</h1>
         <p class="photographers">Katerina Apostolidi & Kostas Tsanakas</p>
         <nav>
-            <a href="#" onclick="showGallery(); return false;">GALLERY</a>
-            <a href="#" onclick="showPhotographers(); return false;">THE PHOTOGRAPHERS</a>
-            <a href="#" onclick="showCurator(); return false;">THE CURATOR</a>
-            <a href="#" onclick="showCuratorNote(); return false;">NOTE FROM THE CURATOR</a>
+            <a href="#" onclick="showGallery(); return false;" data-en="GALLERY" data-de="GALERIE">GALLERY</a>
+            <a href="#" onclick="showPhotographers(); return false;" data-en="THE PHOTOGRAPHERS" data-de="DIE FOTOGRAFEN">THE PHOTOGRAPHERS</a>
+            <a href="#" onclick="showCurator(); return false;" data-en="THE CURATOR" data-de="DIE KURATORIN">THE CURATOR</a>
+            <a href="#" onclick="showCuratorNote(); return false;" data-en="NOTE FROM THE CURATOR" data-de="ANMERKUNG DER KURATORIN">NOTE FROM THE CURATOR</a>
             <a href="#" onclick="showMyxa(); return false;">MYXA CAFE</a>
         </nav>
     </header>
@@ -532,8 +549,8 @@
     <div id="gallery-view">
         <div class="container">
             <div class="intro">
-                <h2>An Exhibition in 24 Photographs</h2>
-                <p>A visual journey exploring memories, places, and the traces left behind by our travels.</p>
+                <h2 data-en="An Exhibition in 24 Photographs" data-de="Eine Ausstellung mit 24 Fotografien">An Exhibition in 24 Photographs</h2>
+                <p data-en="A visual journey exploring memories, places, and the traces left behind by our travels." data-de="Eine visuelle Reise, die Erinnerungen, Orte und die Spuren erforscht, die unsere Reisen hinterlassen.">A visual journey exploring memories, places, and the traces left behind by our travels.</p>
             </div>
 
             <div class="gallery" id="gallery-grid">
@@ -545,7 +562,7 @@
     <div id="photographers-view" style="display: none;">
         <div class="container">
             <div class="page-header">
-                <h2>The Photographers</h2>
+                <h2 data-en="The Photographers" data-de="Die Fotografen">The Photographers</h2>
             </div>
 
             <div class="photographers-grid">
@@ -555,9 +572,9 @@
                     </div>
                     <div class="photographer-info">
                         <h3>Katerina Apostolidi</h3>
-                        <p>Katerina Apostolidi is a photographer based in Athens, Greece. Her work explores themes of memory, place, and the passage of time through intimate observations of everyday life.</p>
-                        <p>With a background in visual arts, Katerina's photographic practice focuses on capturing the subtle poetry found in ordinary moments. Her images invite viewers to slow down and contemplate the relationships between people, spaces, and memories.</p>
-                        <p>Her work has been exhibited in galleries across Europe and published in various photography journals and magazines.</p>
+                        <p data-en="Katerina Apostolidi is a photographer based in Athens, Greece. Her work explores themes of memory, place, and the passage of time through intimate observations of everyday life." data-de="Katerina Apostolidi ist eine in Athen, Griechenland, lebende Fotografin. Ihre Arbeit erforscht Themen wie Erinnerung, Ort und den Lauf der Zeit durch intime Beobachtungen des Alltags.">Katerina Apostolidi is a photographer based in Athens, Greece. Her work explores themes of memory, place, and the passage of time through intimate observations of everyday life.</p>
+                        <p data-en="With a background in visual arts, Katerina's photographic practice focuses on capturing the subtle poetry found in ordinary moments. Her images invite viewers to slow down and contemplate the relationships between people, spaces, and memories." data-de="Mit einem Hintergrund in bildender Kunst konzentriert sich Katerinas fotografische Praxis darauf, die subtile Poesie in gewöhnlichen Momenten einzufangen. Ihre Bilder laden die Betrachter ein, innezuhalten und über die Beziehungen zwischen Menschen, Räumen und Erinnerungen nachzudenken.">With a background in visual arts, Katerina's photographic practice focuses on capturing the subtle poetry found in ordinary moments. Her images invite viewers to slow down and contemplate the relationships between people, spaces, and memories.</p>
+                        <p data-en="Her work has been exhibited in galleries across Europe and published in various photography journals and magazines." data-de="Ihre Arbeiten wurden in Galerien in ganz Europa ausgestellt und in verschiedenen Fotografie-Zeitschriften und Magazinen veröffentlicht.">Her work has been exhibited in galleries across Europe and published in various photography journals and magazines.</p>
                     </div>
                 </div>
 
@@ -567,9 +584,9 @@
                     </div>
                     <div class="photographer-info">
                         <h3>Kostas Tsanakas</h3>
-                        <p>Kostas Tsanakas is a documentary photographer whose work examines the intersection of landscape, culture, and personal narrative. Based in Greece, his photographs reflect a deep engagement with the environments he encounters.</p>
-                        <p>Through his lens, Kostas captures the essence of places and the stories they hold, creating visual narratives that speak to both the universal and the particular aspects of human experience.</p>
-                        <p>His collaborative projects have been featured in international exhibitions, and his work continues to explore the ways photography can preserve and reimagine collective memory.</p>
+                        <p data-en="Kostas Tsanakas is a documentary photographer whose work examines the intersection of landscape, culture, and personal narrative. Based in Greece, his photographs reflect a deep engagement with the environments he encounters." data-de="Kostas Tsanakas ist ein Dokumentarfotograf, dessen Arbeit die Schnittstelle von Landschaft, Kultur und persönlicher Erzählung untersucht. Mit Sitz in Griechenland spiegeln seine Fotografien eine tiefe Auseinandersetzung mit den Umgebungen wider, die er antrifft.">Kostas Tsanakas is a documentary photographer whose work examines the intersection of landscape, culture, and personal narrative. Based in Greece, his photographs reflect a deep engagement with the environments he encounters.</p>
+                        <p data-en="Through his lens, Kostas captures the essence of places and the stories they hold, creating visual narratives that speak to both the universal and the particular aspects of human experience." data-de="Durch seine Linse fängt Kostas die Essenz von Orten und die Geschichten ein, die sie bergen, und schafft visuelle Erzählungen, die sowohl die universellen als auch die besonderen Aspekte menschlicher Erfahrung ansprechen.">Through his lens, Kostas captures the essence of places and the stories they hold, creating visual narratives that speak to both the universal and the particular aspects of human experience.</p>
+                        <p data-en="His collaborative projects have been featured in international exhibitions, and his work continues to explore the ways photography can preserve and reimagine collective memory." data-de="Seine kollaborativen Projekte wurden in internationalen Ausstellungen gezeigt, und seine Arbeit erforscht weiterhin die Art und Weise, wie Fotografie das kollektive Gedächtnis bewahren und neu interpretieren kann.">His collaborative projects have been featured in international exhibitions, and his work continues to explore the ways photography can preserve and reimagine collective memory.</p>
                     </div>
                 </div>
             </div>
@@ -579,7 +596,7 @@
     <div id="curator-view" style="display: none;">
         <div class="container">
             <div class="page-header">
-                <h2>The Curator</h2>
+                <h2 data-en="The Curator" data-de="Die Kuratorin">The Curator</h2>
             </div>
 
             <div class="photographers-grid">
@@ -589,9 +606,9 @@
                     </div>
                     <div class="photographer-info">
                         <h3>Danae Nagel</h3>
-                        <p>Danae Nagel is an independent curator and art critic specializing in contemporary photography and visual culture. With extensive experience in curating exhibitions that explore the relationship between image-making and collective memory, she brings a thoughtful perspective to photographic narratives.</p>
-                        <p>Her curatorial practice is characterized by a deep interest in how photography mediates our understanding of place, identity, and time. She has worked with numerous galleries and cultural institutions, developing exhibitions that create meaningful dialogues between artists and audiences.</p>
-                        <p>Through her work, Danae seeks to create spaces where photography can be experienced not just as documentation, but as a medium for reflection, conversation, and connection.</p>
+                        <p data-en="Danae Nagel is an independent curator and art critic specializing in contemporary photography and visual culture. With extensive experience in curating exhibitions that explore the relationship between image-making and collective memory, she brings a thoughtful perspective to photographic narratives." data-de="Danae Nagel ist eine unabhängige Kuratorin und Kunstkritikerin, die sich auf zeitgenössische Fotografie und visuelle Kultur spezialisiert hat. Mit umfangreicher Erfahrung in der Kuration von Ausstellungen, die die Beziehung zwischen Bildproduktion und kollektivem Gedächtnis erforschen, bringt sie eine durchdachte Perspektive in fotografische Narrative ein.">Danae Nagel is an independent curator and art critic specializing in contemporary photography and visual culture. With extensive experience in curating exhibitions that explore the relationship between image-making and collective memory, she brings a thoughtful perspective to photographic narratives.</p>
+                        <p data-en="Her curatorial practice is characterized by a deep interest in how photography mediates our understanding of place, identity, and time. She has worked with numerous galleries and cultural institutions, developing exhibitions that create meaningful dialogues between artists and audiences." data-de="Ihre kuratorische Praxis ist geprägt von einem tiefen Interesse daran, wie Fotografie unser Verständnis von Ort, Identität und Zeit vermittelt. Sie hat mit zahlreichen Galerien und Kulturinstitutionen zusammengearbeitet und Ausstellungen entwickelt, die sinnvolle Dialoge zwischen Künstlern und Publikum schaffen.">Her curatorial practice is characterized by a deep interest in how photography mediates our understanding of place, identity, and time. She has worked with numerous galleries and cultural institutions, developing exhibitions that create meaningful dialogues between artists and audiences.</p>
+                        <p data-en="Through her work, Danae seeks to create spaces where photography can be experienced not just as documentation, but as a medium for reflection, conversation, and connection." data-de="Durch ihre Arbeit versucht Danae, Räume zu schaffen, in denen Fotografie nicht nur als Dokumentation, sondern als Medium für Reflexion, Gespräch und Verbindung erlebt werden kann.">Through her work, Danae seeks to create spaces where photography can be experienced not just as documentation, but as a medium for reflection, conversation, and connection.</p>
                     </div>
                 </div>
             </div>
@@ -601,21 +618,21 @@
     <div id="curator-note-view" style="display: none;">
         <div class="container">
             <div class="page-header">
-                <h2>Note From The Curator</h2>
+                <h2 data-en="Note From The Curator" data-de="Anmerkung der Kuratorin">Note From The Curator</h2>
             </div>
 
             <div class="curator-note-content">
                 <p class="curator-note-intro">Danae Nagel</p>
                 
-                <p>Travel has always been more than movement through space—it is a journey through time, emotion, and memory. "On the Memory of Travel" invites us to pause and reflect on the traces that journeys leave behind, not just in photographs, but in our consciousness.</p>
+                <p data-en="Travel has always been more than movement through space—it is a journey through time, emotion, and memory. "On the Memory of Travel" invites us to pause and reflect on the traces that journeys leave behind, not just in photographs, but in our consciousness." data-de="Reisen war schon immer mehr als Bewegung durch den Raum – es ist eine Reise durch Zeit, Emotion und Erinnerung. „Über die Erinnerung an das Reisen" lädt uns ein, innezuhalten und über die Spuren nachzudenken, die Reisen hinterlassen, nicht nur in Fotografien, sondern in unserem Bewusstsein.">Travel has always been more than movement through space—it is a journey through time, emotion, and memory. "On the Memory of Travel" invites us to pause and reflect on the traces that journeys leave behind, not just in photographs, but in our consciousness.</p>
                 
-                <p>Katerina Apostolidi and Kostas Tsanakas bring us intimate visual narratives that transcend simple documentation. Their photographs capture the essence of places encountered, moments lived, and the quiet poetry found between departure and arrival. Each image is a meditation on what remains when the journey ends—the light on a familiar street, the texture of a forgotten landscape, the feeling of being simultaneously present and distant.</p>
+                <p data-en="Katerina Apostolidi and Kostas Tsanakas bring us intimate visual narratives that transcend simple documentation. Their photographs capture the essence of places encountered, moments lived, and the quiet poetry found between departure and arrival. Each image is a meditation on what remains when the journey ends—the light on a familiar street, the texture of a forgotten landscape, the feeling of being simultaneously present and distant." data-de="Katerina Apostolidi und Kostas Tsanakas bringen uns intime visuelle Erzählungen, die über einfache Dokumentation hinausgehen. Ihre Fotografien fangen die Essenz von begegneten Orten, gelebten Momenten und die stille Poesie ein, die zwischen Abreise und Ankunft zu finden ist. Jedes Bild ist eine Meditation darüber, was bleibt, wenn die Reise endet – das Licht auf einer vertrauten Straße, die Textur einer vergessenen Landschaft, das Gefühl, gleichzeitig präsent und distanziert zu sein.">Katerina Apostolidi and Kostas Tsanakas bring us intimate visual narratives that transcend simple documentation. Their photographs capture the essence of places encountered, moments lived, and the quiet poetry found between departure and arrival. Each image is a meditation on what remains when the journey ends—the light on a familiar street, the texture of a forgotten landscape, the feeling of being simultaneously present and distant.</p>
                 
-                <p>This exhibition of 24 photographs explores how memory transforms our experience of travel. The images do not simply show us where the photographers have been, but rather how those places continue to exist within them. In this way, the photographs become portals—inviting us to consider our own journeys and the memories we carry.</p>
+                <p data-en="This exhibition of 24 photographs explores how memory transforms our experience of travel. The images do not simply show us where the photographers have been, but rather how those places continue to exist within them. In this way, the photographs become portals—inviting us to consider our own journeys and the memories we carry." data-de="Diese Ausstellung von 24 Fotografien erforscht, wie Erinnerung unsere Erfahrung des Reisens verwandelt. Die Bilder zeigen uns nicht einfach, wo die Fotografen gewesen sind, sondern vielmehr, wie diese Orte weiterhin in ihnen existieren. Auf diese Weise werden die Fotografien zu Portalen – die uns einladen, über unsere eigenen Reisen und die Erinnerungen nachzudenken, die wir tragen.">This exhibition of 24 photographs explores how memory transforms our experience of travel. The images do not simply show us where the photographers have been, but rather how those places continue to exist within them. In this way, the photographs become portals—inviting us to consider our own journeys and the memories we carry.</p>
                 
-                <p>As you move through this exhibition, I encourage you to let each photograph speak to your own experiences of travel, displacement, and homecoming. What do we remember? What do we forget? And how do these images help us understand the intricate relationship between place and identity?</p>
+                <p data-en="As you move through this exhibition, I encourage you to let each photograph speak to your own experiences of travel, displacement, and homecoming. What do we remember? What do we forget? And how do these images help us understand the intricate relationship between place and identity?" data-de="Während Sie durch diese Ausstellung gehen, ermutige ich Sie, jede Fotografie zu Ihren eigenen Erfahrungen von Reisen, Vertreibung und Heimkehr sprechen zu lassen. Woran erinnern wir uns? Was vergessen wir? Und wie helfen uns diese Bilder, die komplexe Beziehung zwischen Ort und Identität zu verstehen?">As you move through this exhibition, I encourage you to let each photograph speak to your own experiences of travel, displacement, and homecoming. What do we remember? What do we forget? And how do these images help us understand the intricate relationship between place and identity?</p>
                 
-                <p class="curator-signature">— Danae Nagel, November 2025</p>
+                <p class="curator-signature" data-en="— Danae Nagel, November 2025" data-de="— Danae Nagel, November 2025">— Danae Nagel, November 2025</p>
             </div>
         </div>
     </div>
@@ -628,476 +645,7 @@
 
             <div class="venue-content">
                 <div class="venue-info">
-                    <h3>About Myxa</h3>
-                    <p>Myxa is a cozy Greek-Mediterranean café-bistro located in the heart of Neukölln, Berlin. Since 2011, this charming corner café with its two big windows has been more than just a place to eat and drink—it's become a cultural hub where art, community, and authentic Greek flavors come together.</p>
+                    <h3 data-en="About Myxa" data-de="Über Myxa">About Myxa</h3>
+                    <p data-en="Myxa is a cozy Greek-Mediterranean café-bistro located in the heart of Neukölln, Berlin. Since 2011, this charming corner café with its two big windows has been more than just a place to eat and drink—it's become a cultural hub where art, community, and authentic Greek flavors come together." data-de="Myxa ist ein gemütliches griechisch-mediterranes Café-Bistro im Herzen von Neukölln, Berlin. Seit 2011 ist dieses charmante Eckcafé mit seinen zwei großen Fenstern mehr als nur ein Ort zum Essen und Trinken – es ist zu einem kulturellen Zentrum geworden, wo Kunst, Gemeinschaft und authentische griechische Aromen zusammenkommen.">Myxa is a cozy Greek-Mediterranean café-bistro located in the heart of Neukölln, Berlin. Since 2011, this charming corner café with its two big windows has been more than just a place to eat and drink—it's become a cultural hub where art, community, and authentic Greek flavors come together.</p>
                     
-                    <p>The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors, Myxa offers a warm and welcoming atmosphere.</p>
-                    
-                    <p>Beyond serving delicious food and excellent coffee from KUDU Coffee Roasters, Myxa regularly hosts art exhibitions, live music events, and cultural gatherings, making it the perfect venue for "On the Memory of Travel."</p>
-
-                    <div class="venue-details">
-                        <p><strong>Address:</strong><br>
-                        Lenaustraße 22<br>
-                        12047 Berlin, Germany</p>
-                        
-                        <p><strong>Phone:</strong><br>
-                        +49 30 68324447</p>
-
-                        <div class="venue-map">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.0775!2d13.4273!3d52.4859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84fb3e8c3c6e3%3A0x9d3f3f3f3f3f3f3f!2sMyxa!5e0!3m2!1sen!2sde!4v1234567890" 
-                                width="100%" 
-                                height="300" 
-                                style="border:0; border-radius: 8px; margin-top: 1rem;" 
-                                allowfullscreen="" 
-                                loading="lazy">
-                            </iframe>
-                        </div>
-
-                        <a href="https://myxaberlin.de/" target="_blank" class="btn" style="margin-top: 1.5rem;">Visit Myxa Website</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="photo-details-container">
-        <!-- Photo details will be generated by JavaScript -->
-    </div>
-
-    <footer>
-        <p>&copy; 2025 "On the Memory of Travel" - Katerina Apostolidi & Kostas Tsanakas. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script>
-        // Photo data - customize this array with your actual photos
-        const photos = [
-            {
-                id: 1,
-                title: "Untitled No. 1",
-                location: "Location Name",
-                year: "2024",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
-                price: "$250"
-            },
-            {
-                id: 2,
-                title: "Untitled No. 2",
-                location: "Location Name",
-                year: "2024",
-                description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200",
-                price: "$250"
-            },
-            {
-                id: 3,
-                title: "Untitled No. 3",
-                location: "Location Name",
-                year: "2024",
-                description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200",
-                price: "$250"
-            },
-            {
-                id: 4,
-                title: "Untitled No. 4",
-                location: "Location Name",
-                year: "2024",
-                description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.",
-                image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 5,
-                title: "Untitled No. 5",
-                location: "Location Name",
-                year: "2024",
-                description: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1200",
-                price: "$250"
-            },
-            {
-                id: 6,
-                title: "Untitled No. 6",
-                location: "Location Name",
-                year: "2024",
-                description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 7,
-                title: "Untitled No. 7",
-                location: "Location Name",
-                year: "2024",
-                description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 8,
-                title: "Untitled No. 8",
-                location: "Location Name",
-                year: "2024",
-                description: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 9,
-                title: "Untitled No. 9",
-                location: "Location Name",
-                year: "2024",
-                description: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=1200",
-                price: "$250"
-            },
-            {
-                id: 10,
-                title: "Untitled No. 10",
-                location: "Location Name",
-                year: "2024",
-                description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.",
-                image: "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200",
-                price: "$250"
-            },
-            {
-                id: 11,
-                title: "Untitled No. 11",
-                location: "Location Name",
-                year: "2024",
-                description: "Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
-                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200",
-                price: "$250"
-            },
-            {
-                id: 12,
-                title: "Untitled No. 12",
-                location: "Location Name",
-                year: "2024",
-                description: "Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200",
-                price: "$250"
-            },
-            {
-                id: 13,
-                title: "Untitled No. 13",
-                location: "Location Name",
-                year: "2024",
-                description: "Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
-                image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200",
-                price: "$250"
-            },
-            {
-                id: 14,
-                title: "Untitled No. 14",
-                location: "Location Name",
-                year: "2024",
-                description: "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
-                price: "$250"
-            },
-            {
-                id: 15,
-                title: "Untitled No. 15",
-                location: "Location Name",
-                year: "2024",
-                description: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
-                image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200",
-                price: "$250"
-            },
-            {
-                id: 16,
-                title: "Untitled No. 16",
-                location: "Location Name",
-                year: "2024",
-                description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
-                image: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 17,
-                title: "Untitled No. 17",
-                location: "Location Name",
-                year: "2024",
-                description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1200",
-                price: "$250"
-            },
-            {
-                id: 18,
-                title: "Untitled No. 18",
-                location: "Location Name",
-                year: "2024",
-                description: "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.",
-                image: "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?w=1200",
-                price: "$250"
-            },
-            {
-                id: 19,
-                title: "Untitled No. 19",
-                location: "Location Name",
-                year: "2024",
-                description: "Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Sed ut perspiciatis unde omnis iste natus error.",
-                image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1200",
-                price: "$250"
-            },
-            {
-                id: 20,
-                title: "Untitled No. 20",
-                location: "Location Name",
-                year: "2024",
-                description: "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 21,
-                title: "Untitled No. 21",
-                location: "Location Name",
-                year: "2024",
-                description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
-                price: "$250"
-            },
-            {
-                id: 22,
-                title: "Untitled No. 22",
-                location: "Location Name",
-                year: "2024",
-                description: "Qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 23,
-                title: "Untitled No. 23",
-                location: "Location Name",
-                year: "2024",
-                description: "Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200",
-                price: "$250"
-            },
-            {
-                id: 24,
-                title: "Untitled No. 24",
-                location: "Location Name",
-                year: "2024",
-                description: "Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=1200",
-                price: "$250"
-            }
-        ];
-
-        // Generate gallery items
-        function generateGallery() {
-            const gallery = document.getElementById('gallery-grid');
-            photos.forEach(photo => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                item.onclick = () => showPhoto(photo.id);
-                item.innerHTML = `
-                    <img src="${photo.image}" alt="${photo.title}">
-                    <div class="gallery-overlay">
-                        <div class="photo-number">Photo ${photo.id} of 24</div>
-                        <h3>${photo.title}</h3>
-                    </div>
-                `;
-                gallery.appendChild(item);
-            });
-        }
-
-        // Generate photo detail pages
-        function generatePhotoDetails() {
-            const container = document.getElementById('photo-details-container');
-            photos.forEach(photo => {
-                const prevId = photo.id > 1 ? photo.id - 1 : null;
-                const nextId = photo.id < photos.length ? photo.id + 1 : null;
-                
-                const detail = document.createElement('div');
-                detail.id = `photo-${photo.id}`;
-                detail.className = 'photo-detail';
-                detail.innerHTML = `
-                    <div class="container">
-                        <a href="#" class="back-link" onclick="showGallery(); return false;">← Back to Gallery</a>
-                        
-                        <div class="photo-header">
-                            <h2>${photo.title}</h2>
-                            <p class="subtitle">Photo ${photo.id} of 24</p>
-                        </div>
-
-                        <div class="photo-content">
-                            <div class="photo-image">
-                                <img src="${photo.image}" alt="${photo.title}">
-                            </div>
-
-                            <div class="photo-info">
-                                <div class="photo-meta">
-                                    <div><strong>Location:</strong> ${photo.location}</div>
-                                    <div><strong>Year:</strong> ${photo.year}</div>
-                                    <div><strong>Photographers:</strong> Katerina Apostolidi & Kostas Tsanakas</div>
-                                </div>
-
-                                <h3>About This Photograph</h3>
-                                <p>${photo.description}</p>
-
-                                <div class="qr-section">
-                                    <h3>QR Code for This Photo</h3>
-                                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Scan to view this photo on your device</p>
-                                    <div class="qr-code-container">
-                                        <div id="qrcode-${photo.id}"></div>
-                                    </div>
-                                    <br>
-                                    <a href="#" class="qr-download-btn" onclick="downloadQR(${photo.id}, '${photo.title}'); return false;">Download QR Code</a>
-                                </div>
-
-                                <div class="purchase-section">
-                                    <h4>Purchase This Print</h4>
-                                    <div class="price">${photo.price}</div>
-                                    <p style="color: #666; margin-bottom: 1.5rem;">Available in various print sizes</p>
-                                    
-                                    <a href="https://paypal.me/yourlink" class="btn" target="_blank">Buy via PayPal</a>
-                                    <a href="mailto:your.email@example.com?subject=Inquiry about ${photo.title}" class="btn btn-secondary">Email Inquiry</a>
-                                    
-                                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #999;">All prints are professionally produced on archival-quality paper.</p>
-                                </div>
-
-                                <div class="navigation-arrows">
-                                    <a href="#" class="nav-arrow ${!prevId ? 'disabled' : ''}" onclick="${prevId ? `showPhoto(${prevId}); return false;` : 'return false;'}">
-                                        ${prevId ? `← Previous: ${photos[prevId-1].title}` : ''}
-                                    </a>
-                                    <a href="#" class="nav-arrow ${!nextId ? 'disabled' : ''}" onclick="${nextId ? `showPhoto(${nextId}); return false;` : 'return false;'}">
-                                        ${nextId ? `Next: ${photos[nextId-1].title} →` : ''}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(detail);
-            });
-        }
-
-        function showPhoto(id) {
-            document.getElementById('gallery-view').style.display = 'none';
-            document.getElementById('photographers-view').style.display = 'none';
-            document.getElementById('curator-view').style.display = 'none';
-            document.getElementById('curator-note-view').style.display = 'none';
-            document.getElementById('myxa-view').style.display = 'none';
-            const photoDetails = document.querySelectorAll('.photo-detail');
-            photoDetails.forEach(p => p.classList.remove('active'));
-            document.getElementById('photo-' + id).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showGallery() {
-            document.getElementById('gallery-view').style.display = 'block';
-            document.getElementById('photographers-view').style.display = 'none';
-            document.getElementById('curator-view').style.display = 'none';
-            document.getElementById('curator-note-view').style.display = 'none';
-            document.getElementById('myxa-view').style.display = 'none';
-            const photoDetails = document.querySelectorAll('.photo-detail');
-            photoDetails.forEach(p => p.classList.remove('active'));
-            window.scrollTo(0, 0);
-        }
-
-        function showPhotographers() {
-            document.getElementById('gallery-view').style.display = 'none';
-            document.getElementById('photographers-view').style.display = 'block';
-            document.getElementById('curator-view').style.display = 'none';
-            document.getElementById('curator-note-view').style.display = 'none';
-            document.getElementById('myxa-view').style.display = 'none';
-            const photoDetails = document.querySelectorAll('.photo-detail');
-            photoDetails.forEach(p => p.classList.remove('active'));
-            window.scrollTo(0, 0);
-        }
-
-        function showCurator() {
-            document.getElementById('gallery-view').style.display = 'none';
-            document.getElementById('photographers-view').style.display = 'none';
-            document.getElementById('curator-view').style.display = 'block';
-            document.getElementById('curator-note-view').style.display = 'none';
-            document.getElementById('myxa-view').style.display = 'none';
-            const photoDetails = document.querySelectorAll('.photo-detail');
-            photoDetails.forEach(p => p.classList.remove('active'));
-            window.scrollTo(0, 0);
-        }
-
-        function showCuratorNote() {
-            document.getElementById('gallery-view').style.display = 'none';
-            document.getElementById('photographers-view').style.display = 'none';
-            document.getElementById('curator-view').style.display = 'none';
-            document.getElementById('curator-note-view').style.display = 'block';
-            document.getElementById('myxa-view').style.display = 'none';
-            const photoDetails = document.querySelectorAll('.photo-detail');
-            photoDetails.forEach(p => p.classList.remove('active'));
-            window.scrollTo(0, 0);
-        }
-
-        function showMyxa() {
-            document.getElementById('gallery-view').style.display = 'none';
-            document.getElementById('photographers-view').style.display = 'none';
-            document.getElementById('curator-view').style.display = 'none';
-            document.getElementById('curator-note-view').style.display = 'none';
-            document.getElementById('myxa-view').style.display = 'block';
-            const photoDetails = document.querySelectorAll('.photo-detail');
-            photoDetails.forEach(p => p.classList.remove('active'));
-            window.scrollTo(0, 0);
-        }
-
-        // Generate QR codes for each photo
-        function generateQRCodes() {
-            const baseUrl = window.location.origin + window.location.pathname;
-            photos.forEach(photo => {
-                const photoUrl = `${baseUrl}?photo=${photo.id}`;
-                new QRCode(document.getElementById(`qrcode-${photo.id}`), {
-                    text: photoUrl,
-                    width: 200,
-                    height: 200,
-                    colorDark: "#000000",
-                    colorLight: "#ffffff",
-                    correctLevel: QRCode.CorrectLevel.H
-                });
-            });
-        }
-
-        // Download QR code as image
-        function downloadQR(photoId, photoTitle) {
-            const qrContainer = document.getElementById(`qrcode-${photoId}`);
-            const canvas = qrContainer.querySelector('canvas');
-            if (canvas) {
-                const url = canvas.toDataURL('image/png');
-                const link = document.createElement('a');
-                link.download = `QR-${photoTitle.replace(/\s+/g, '-')}.png`;
-                link.href = url;
-                link.click();
-            }
-        }
-
-        // Check if URL has a photo parameter and show that photo
-        function checkUrlParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const photoId = urlParams.get('photo');
-            if (photoId && photoId >= 1 && photoId <= photos.length) {
-                showPhoto(parseInt(photoId));
-            }
-        }
-
-        // Initialize on page load
-        generateGallery();
-        generatePhotoDetails();
-        
-        // Wait for QRCode library to load, then generate QR codes
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                if (typeof QRCode !== 'undefined') {
-                    generateQRCodes();
-                    checkUrlParams();
-                }
-            }, 100);
-        });
-    </script>
-</body>
-</html>
+                    <p data-en="The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors, Myxa offers a warm and welcoming atmosphere." data-de="Das Café ist bekannt für seine hausgemachte griechisch-mediterrane Küche mit authentischen Zutaten aus Kreta, darunter natives Olivenöl extra und handverlesene Tees und Kräuter. Mit seinem schönen Interieur im Berliner Stil der 1920er Jahre, handgefertigten Möbeln und Holzböden bietet Myxa eine warme und einladende Atmosphäre.">The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors
