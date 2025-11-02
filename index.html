@@ -366,6 +366,62 @@
             margin-bottom: 1rem;
         }
 
+        .venue-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .venue-main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .venue-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .venue-image-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .venue-info h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .venue-info h4 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 2rem 0 1rem;
+        }
+
+        .venue-info p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .venue-details {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .venue-details p {
+            margin-bottom: 1.5rem;
+        }
+
         @media (max-width: 768px) {
             .photographer-card {
                 grid-template-columns: 1fr;
@@ -442,7 +498,7 @@
             <a href="#" onclick="showGallery(); return false;">GALLERY</a>
             <a href="#" onclick="showPhotographers(); return false;">THE PHOTOGRAPHERS</a>
             <a href="#" onclick="showCurator(); return false;">THE CURATOR</a>
-            <a href="#myxa">MYXA CAFE</a>
+            <a href="#" onclick="showMyxa(); return false;">MYXA CAFE</a>
             <a href="#contact">CONTACT</a>
         </nav>
     </header>
@@ -510,6 +566,47 @@
                         <p>Danae Nagel is an independent curator and art critic specializing in contemporary photography and visual culture. With extensive experience in curating exhibitions that explore the relationship between image-making and collective memory, she brings a thoughtful perspective to photographic narratives.</p>
                         <p>Her curatorial practice is characterized by a deep interest in how photography mediates our understanding of place, identity, and time. She has worked with numerous galleries and cultural institutions, developing exhibitions that create meaningful dialogues between artists and audiences.</p>
                         <p>Through her work, Danae seeks to create spaces where photography can be experienced not just as documentation, but as a medium for reflection, conversation, and connection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myxa-view" style="display: none;">
+        <div class="container">
+            <div class="page-header">
+                <h2>Myxa Cafe</h2>
+            </div>
+
+            <div class="venue-content">
+                <div class="venue-info">
+                    <h3>About Myxa</h3>
+                    <p>Myxa is a cozy Greek-Mediterranean café-bistro located in the heart of Neukölln, Berlin. Since 2011, this charming corner café with its two big windows has been more than just a place to eat and drink—it's become a cultural hub where art, community, and authentic Greek flavors come together.</p>
+                    
+                    <p>The café is known for its homemade Greek-Mediterranean inspired food using genuine ingredients from Crete, including extra virgin olive oil and hand-picked teas and herbs. With its beautiful 1920s Berlin-style interior, handmade furniture, and wooden floors, Myxa offers a warm and welcoming atmosphere.</p>
+                    
+                    <p>Beyond serving delicious food and excellent coffee from KUDU Coffee Roasters, Myxa regularly hosts art exhibitions, live music events, and cultural gatherings, making it the perfect venue for "On the Memory of Travel."</p>
+
+                    <div class="venue-details">
+                        <p><strong>Address:</strong><br>
+                        Lenaustraße 22<br>
+                        12047 Berlin, Germany</p>
+                        
+                        <p><strong>Phone:</strong><br>
+                        +49 30 68324447</p>
+
+                        <div class="venue-map">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.0775!2d13.4273!3d52.4859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84fb3e8c3c6e3%3A0x9d3f3f3f3f3f3f3f!2sMyxa!5e0!3m2!1sen!2sde!4v1234567890" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0; border-radius: 8px; margin-top: 1rem;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+
+                        <a href="https://myxaberlin.de/" target="_blank" class="btn" style="margin-top: 1.5rem;">Visit Myxa Website</a>
                     </div>
                 </div>
             </div>
@@ -839,6 +936,7 @@
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'none';
             document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
             document.getElementById('photo-' + id).classList.add('active');
@@ -849,6 +947,7 @@
             document.getElementById('gallery-view').style.display = 'block';
             document.getElementById('photographers-view').style.display = 'none';
             document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
             window.scrollTo(0, 0);
@@ -858,6 +957,7 @@
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'block';
             document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
             window.scrollTo(0, 0);
@@ -867,6 +967,17 @@
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'none';
             document.getElementById('curator-view').style.display = 'block';
+            document.getElementById('myxa-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        function showMyxa() {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'block';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
             window.scrollTo(0, 0);
