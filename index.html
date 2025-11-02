@@ -422,6 +422,32 @@
             margin-bottom: 1.5rem;
         }
 
+        .curator-note-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .curator-note-intro {
+            font-style: italic;
+            color: #999;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .curator-note-content p {
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 1.8rem;
+            font-size: 1.05rem;
+        }
+
+        .curator-signature {
+            font-style: italic;
+            color: #999;
+            margin-top: 3rem;
+            text-align: right;
+        }
+
         @media (max-width: 768px) {
             .photographer-card {
                 grid-template-columns: 1fr;
@@ -498,6 +524,7 @@
             <a href="#" onclick="showGallery(); return false;">GALLERY</a>
             <a href="#" onclick="showPhotographers(); return false;">THE PHOTOGRAPHERS</a>
             <a href="#" onclick="showCurator(); return false;">THE CURATOR</a>
+            <a href="#" onclick="showCuratorNote(); return false;">NOTE FROM THE CURATOR</a>
             <a href="#" onclick="showMyxa(); return false;">MYXA CAFE</a>
         </nav>
     </header>
@@ -567,6 +594,28 @@
                         <p>Through her work, Danae seeks to create spaces where photography can be experienced not just as documentation, but as a medium for reflection, conversation, and connection.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="curator-note-view" style="display: none;">
+        <div class="container">
+            <div class="page-header">
+                <h2>Note From The Curator</h2>
+            </div>
+
+            <div class="curator-note-content">
+                <p class="curator-note-intro">Danae Nagel</p>
+                
+                <p>Travel has always been more than movement through space—it is a journey through time, emotion, and memory. "On the Memory of Travel" invites us to pause and reflect on the traces that journeys leave behind, not just in photographs, but in our consciousness.</p>
+                
+                <p>Katerina Apostolidi and Kostas Tsanakas bring us intimate visual narratives that transcend simple documentation. Their photographs capture the essence of places encountered, moments lived, and the quiet poetry found between departure and arrival. Each image is a meditation on what remains when the journey ends—the light on a familiar street, the texture of a forgotten landscape, the feeling of being simultaneously present and distant.</p>
+                
+                <p>This exhibition of 24 photographs explores how memory transforms our experience of travel. The images do not simply show us where the photographers have been, but rather how those places continue to exist within them. In this way, the photographs become portals—inviting us to consider our own journeys and the memories we carry.</p>
+                
+                <p>As you move through this exhibition, I encourage you to let each photograph speak to your own experiences of travel, displacement, and homecoming. What do we remember? What do we forget? And how do these images help us understand the intricate relationship between place and identity?</p>
+                
+                <p class="curator-signature">— Danae Nagel, November 2025</p>
             </div>
         </div>
     </div>
@@ -935,6 +984,7 @@
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'none';
             document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
             document.getElementById('myxa-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
@@ -946,6 +996,7 @@
             document.getElementById('gallery-view').style.display = 'block';
             document.getElementById('photographers-view').style.display = 'none';
             document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
             document.getElementById('myxa-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
@@ -956,6 +1007,7 @@
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'block';
             document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
             document.getElementById('myxa-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
@@ -966,6 +1018,18 @@
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'none';
             document.getElementById('curator-view').style.display = 'block';
+            document.getElementById('curator-note-view').style.display = 'none';
+            document.getElementById('myxa-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        function showCuratorNote() {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'block';
             document.getElementById('myxa-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
@@ -976,6 +1040,7 @@
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'none';
             document.getElementById('curator-view').style.display = 'none';
+            document.getElementById('curator-note-view').style.display = 'none';
             document.getElementById('myxa-view').style.display = 'block';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
