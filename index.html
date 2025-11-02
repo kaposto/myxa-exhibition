@@ -441,7 +441,7 @@
         <nav>
             <a href="#" onclick="showGallery(); return false;">GALLERY</a>
             <a href="#" onclick="showPhotographers(); return false;">THE PHOTOGRAPHERS</a>
-            <a href="#curator">THE CURATOR</a>
+            <a href="#" onclick="showCurator(); return false;">THE CURATOR</a>
             <a href="#myxa">MYXA CAFE</a>
             <a href="#contact">CONTACT</a>
         </nav>
@@ -488,6 +488,28 @@
                         <p>Kostas Tsanakas is a documentary photographer whose work examines the intersection of landscape, culture, and personal narrative. Based in Greece, his photographs reflect a deep engagement with the environments he encounters.</p>
                         <p>Through his lens, Kostas captures the essence of places and the stories they hold, creating visual narratives that speak to both the universal and the particular aspects of human experience.</p>
                         <p>His collaborative projects have been featured in international exhibitions, and his work continues to explore the ways photography can preserve and reimagine collective memory.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="curator-view" style="display: none;">
+        <div class="container">
+            <div class="page-header">
+                <h2>The Curator</h2>
+            </div>
+
+            <div class="photographers-grid">
+                <div class="photographer-card">
+                    <div class="photographer-photo">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Danae Nagel">
+                    </div>
+                    <div class="photographer-info">
+                        <h3>Danae Nagel</h3>
+                        <p>Danae Nagel is an independent curator and art critic specializing in contemporary photography and visual culture. With extensive experience in curating exhibitions that explore the relationship between image-making and collective memory, she brings a thoughtful perspective to photographic narratives.</p>
+                        <p>Her curatorial practice is characterized by a deep interest in how photography mediates our understanding of place, identity, and time. She has worked with numerous galleries and cultural institutions, developing exhibitions that create meaningful dialogues between artists and audiences.</p>
+                        <p>Through her work, Danae seeks to create spaces where photography can be experienced not just as documentation, but as a medium for reflection, conversation, and connection.</p>
                     </div>
                 </div>
             </div>
@@ -816,6 +838,7 @@
         function showPhoto(id) {
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
             document.getElementById('photo-' + id).classList.add('active');
@@ -825,6 +848,7 @@
         function showGallery() {
             document.getElementById('gallery-view').style.display = 'block';
             document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'none';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
             window.scrollTo(0, 0);
@@ -833,6 +857,16 @@
         function showPhotographers() {
             document.getElementById('gallery-view').style.display = 'none';
             document.getElementById('photographers-view').style.display = 'block';
+            document.getElementById('curator-view').style.display = 'none';
+            const photoDetails = document.querySelectorAll('.photo-detail');
+            photoDetails.forEach(p => p.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+
+        function showCurator() {
+            document.getElementById('gallery-view').style.display = 'none';
+            document.getElementById('photographers-view').style.display = 'none';
+            document.getElementById('curator-view').style.display = 'block';
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
             window.scrollTo(0, 0);
