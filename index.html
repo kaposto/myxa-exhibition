@@ -36,13 +36,6 @@
             margin-bottom: 0.5rem;
         }
 
-        header .photographers {
-            font-size: 1rem;
-            color: #aaa;
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
         .language-toggle {
             position: absolute;
             top: 1rem;
@@ -142,6 +135,30 @@
             color: #333;
         }
 
+        .contact-section {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-section strong {
+            color: #333;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-section a:hover {
+            color: #666;
+        }
+
         .navigation-arrows {
             display: flex;
             justify-content: space-between;
@@ -200,7 +217,6 @@
             <button onclick="setLanguage('de')" id="lang-de">DE</button>
         </div>
         <h1 data-en="On the Memory of Travel" data-de="Über die Erinnerung an das Reisen">On the Memory of Travel</h1>
-        <p class="photographers">Katerina Apostolidi & Kostas Tsanakas</p>
     </header>
 
     <div id="photo-details-container">
@@ -215,42 +231,43 @@
         let currentLang = 'en';
 
         const photos = [
-            {id: 1, title: "Untitled No. 1", location: "Location Name", year: "2024", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."},
-            {id: 2, title: "Untitled No. 2", location: "Location Name", year: "2024", description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."},
-            {id: 3, title: "Untitled No. 3", location: "Location Name", year: "2024", description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."},
-            {id: 4, title: "Untitled No. 4", location: "Location Name", year: "2024", description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores."},
-            {id: 5, title: "Untitled No. 5", location: "Location Name", year: "2024", description: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."},
-            {id: 6, title: "Untitled No. 6", location: "Location Name", year: "2024", description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus."},
-            {id: 7, title: "Untitled No. 7", location: "Location Name", year: "2024", description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus."},
-            {id: 8, title: "Untitled No. 8", location: "Location Name", year: "2024", description: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."},
-            {id: 9, title: "Untitled No. 9", location: "Location Name", year: "2024", description: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat."},
-            {id: 10, title: "Untitled No. 10", location: "Location Name", year: "2024", description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt."},
-            {id: 11, title: "Untitled No. 11", location: "Location Name", year: "2024", description: "Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."},
-            {id: 12, title: "Untitled No. 12", location: "Location Name", year: "2024", description: "Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."},
-            {id: 13, title: "Untitled No. 13", location: "Location Name", year: "2024", description: "Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis."},
-            {id: 14, title: "Untitled No. 14", location: "Location Name", year: "2024", description: "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."},
-            {id: 15, title: "Untitled No. 15", location: "Location Name", year: "2024", description: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."},
-            {id: 16, title: "Untitled No. 16", location: "Location Name", year: "2024", description: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus."},
-            {id: 17, title: "Untitled No. 17", location: "Location Name", year: "2024", description: "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus."},
-            {id: 18, title: "Untitled No. 18", location: "Location Name", year: "2024", description: "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus."},
-            {id: 19, title: "Untitled No. 19", location: "Location Name", year: "2024", description: "Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Sed ut perspiciatis unde omnis iste natus error."},
-            {id: 20, title: "Untitled No. 20", location: "Location Name", year: "2024", description: "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae."},
-            {id: 21, title: "Untitled No. 21", location: "Location Name", year: "2024", description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos."},
-            {id: 22, title: "Untitled No. 22", location: "Location Name", year: "2024", description: "Qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."},
-            {id: 23, title: "Untitled No. 23", location: "Location Name", year: "2024", description: "Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam."},
-            {id: 24, title: "Untitled No. 24", location: "Location Name", year: "2024", description: "Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit."}
+            {id: "1a", title: "Boy and cows in harmony", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 150.00 for A3+ print, EUR 70.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "1b", title: "Ash on my face", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 150.00 for A3+ print, EUR 70.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "2a", title: "From A Distance", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "2b", title: "Somewhere in Ireland", artist: "Kostas Tsanakas", medium: "Analog print on photographic paper", dimensions: "26.0 x 39.0 cm", edition: "Edition of 5", price: "EUR 150.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "3a", title: "Flirt", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "3b", title: "San Victorino", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "4a", title: "Look at me!", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "4b", title: "Baking and selling", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "5", title: "Dreams Of The Ocean", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "6a", title: "So nice to see you", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "6b", title: "The Port Of Toamasina", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "7a", title: "Calle 5a", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "7b", title: "Lady At Window", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "21.0 x 29.7 cm", edition: "Edition of 5", price: "EUR 120.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "8a", title: "Women Workers", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "8b", title: "Antifascismo", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "9a", title: "Tailor", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "Pakistan", year: "2021", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "9b", title: "Salesman manicure", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "Pakistan", year: "2024", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "9c", title: "Butcher", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "Pakistan", year: "2021", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "10a", title: "Carrying food", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "10b", title: "Right after dance", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "11a", title: "Your Pedophile Priest Will Not Decide About My Uterus", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "11b", title: "Man Machine", artist: "Kostas Tsanakas", medium: "Inkjet print on matte paper", dimensions: "32.9 x 48.3 cm", edition: "Edition of 5", price: "EUR 130.00", contact: "edicionesropynol@gmail.com\n+491748905672"},
+            {id: "12a", title: "I am the boss", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "South Sudan", year: "2024", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"},
+            {id: "12b", title: "Weeding", artist: "Katerina Apostolidi", medium: "Digital print", edition: "Edition of 10", location: "Pakistan", year: "2021", price: "EUR 100.00 for A3+ print, EUR 55.00 for A4", contact: "kapostolidi@gmail.com", instagram: "_katerina_autumn_"}
         ];
 
         function generatePhotoDetails() {
             const container = document.getElementById('photo-details-container');
-            photos.forEach(photo => {
-                const prevId = photo.id > 1 ? photo.id - 1 : null;
-                const nextId = photo.id < photos.length ? photo.id + 1 : null;
+            photos.forEach((photo, index) => {
+                const prevId = index > 0 ? photos[index-1].id : null;
+                const nextId = index < photos.length - 1 ? photos[index+1].id : null;
                 
                 const detail = document.createElement('div');
                 detail.id = `photo-${photo.id}`;
                 detail.className = 'photo-detail';
-                detail.innerHTML = `
+                
+                let contentHTML = `
                     <div class="container">
                         <div class="photo-header">
                             <h2>${photo.title}</h2>
@@ -260,26 +277,68 @@
                         <div class="photo-content">
                             <div class="photo-info">
                                 <div class="photo-meta">
-                                    <div><strong data-en="Location:" data-de="Ort:">Location:</strong> ${photo.location}</div>
-                                    <div><strong data-en="Year:" data-de="Jahr:">Year:</strong> ${photo.year}</div>
-                                    <div><strong data-en="Photographers:" data-de="Fotografen:">Photographers:</strong> Katerina Apostolidi & Kostas Tsanakas</div>
+                                    ${photo.artist ? `<div><strong>Artist:</strong> ${photo.artist}</div>` : ''}
+                                    ${photo.medium ? `<div><strong>Medium:</strong> ${photo.medium}</div>` : ''}
+                `;
+                
+                // Different display for Katerina's photos vs Kostas's photos
+                if (photo.location) {
+                    // Katerina's format
+                    contentHTML += `
+                                    ${photo.location ? `<div><strong>Location:</strong> ${photo.location}</div>` : ''}
+                                    ${photo.year ? `<div><strong>Year:</strong> ${photo.year}</div>` : ''}
+                                    ${photo.edition ? `<div><strong>Edition:</strong> ${photo.edition}</div>` : ''}
+                                    ${photo.price ? `<div><strong>Price:</strong> ${photo.price}</div>` : ''}
+                    `;
+                } else {
+                    // Kostas's format
+                    contentHTML += `
+                                    ${photo.dimensions ? `<div><strong>Dimensions:</strong> ${photo.dimensions}</div>` : ''}
+                                    ${photo.edition ? `<div><strong>Edition:</strong> ${photo.edition}</div>` : ''}
+                                    ${photo.price ? `<div><strong>Price:</strong> ${photo.price}</div>` : ''}
+                    `;
+                }
+                
+                contentHTML += `</div>`;
+                
+                if (photo.contact) {
+                    if (photo.instagram) {
+                        // Katerina's contact format (email + instagram)
+                        contentHTML += `
+                                <div class="contact-section">
+                                    <strong>Contact:</strong>
+                                    <a href="mailto:${photo.contact}">${photo.contact}</a><br>
+                                    <a href="https://instagram.com/${photo.instagram}" target="_blank">@${photo.instagram}</a>
                                 </div>
-
-                                <h3 data-en="About This Photograph" data-de="Über diese Fotografie">About This Photograph</h3>
-                                <p>${photo.description}</p>
-
+                        `;
+                    } else if (photo.contact.includes('\n')) {
+                        // Kostas's contact format (email + phone)
+                        const contactLines = photo.contact.split('\n');
+                        contentHTML += `
+                                <div class="contact-section">
+                                    <strong>Contact:</strong>
+                                    <a href="mailto:${contactLines[0]}">${contactLines[0]}</a><br>
+                                    <a href="tel:${contactLines[1]}">${contactLines[1]}</a>
+                                </div>
+                        `;
+                    }
+                }
+                
+                contentHTML += `
                                 <div class="navigation-arrows">
-                                    <a href="#" class="nav-arrow ${!prevId ? 'disabled' : ''}" onclick="${prevId ? `showPhoto(${prevId}); return false;` : 'return false;'}">
-                                        ${prevId ? `<span data-en="← Previous: ${photos[prevId-1].title}" data-de="← Zurück: ${photos[prevId-1].title}">← Previous: ${photos[prevId-1].title}</span>` : ''}
+                                    <a href="#" class="nav-arrow ${!prevId ? 'disabled' : ''}" onclick="${prevId ? `showPhoto('${prevId}'); return false;` : 'return false;'}">
+                                        ${prevId ? `<span data-en="← Previous: ${photos[index-1].title}" data-de="← Zurück: ${photos[index-1].title}">← Previous: ${photos[index-1].title}</span>` : ''}
                                     </a>
-                                    <a href="#" class="nav-arrow ${!nextId ? 'disabled' : ''}" onclick="${nextId ? `showPhoto(${nextId}); return false;` : 'return false;'}">
-                                        ${nextId ? `<span data-en="Next: ${photos[nextId-1].title} →" data-de="Weiter: ${photos[nextId-1].title} →">Next: ${photos[nextId-1].title} →</span>` : ''}
+                                    <a href="#" class="nav-arrow ${!nextId ? 'disabled' : ''}" onclick="${nextId ? `showPhoto('${nextId}'); return false;` : 'return false;'}">
+                                        ${nextId ? `<span data-en="Next: ${photos[index+1].title} →" data-de="Weiter: ${photos[index+1].title} →">Next: ${photos[index+1].title} →</span>` : ''}
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `;
+                
+                detail.innerHTML = contentHTML;
                 container.appendChild(detail);
             });
         }
@@ -287,18 +346,21 @@
         function showPhoto(id) {
             const photoDetails = document.querySelectorAll('.photo-detail');
             photoDetails.forEach(p => p.classList.remove('active'));
-            document.getElementById('photo-' + id).classList.add('active');
-            window.scrollTo(0, 0);
+            const targetPhoto = document.getElementById('photo-' + id);
+            if (targetPhoto) {
+                targetPhoto.classList.add('active');
+                window.scrollTo(0, 0);
+            }
         }
 
         function checkUrlParams() {
             const urlParams = new URLSearchParams(window.location.search);
             const photoId = urlParams.get('photo');
-            if (photoId && photoId >= 1 && photoId <= photos.length) {
-                showPhoto(parseInt(photoId));
+            if (photoId) {
+                showPhoto(photoId);
             } else {
                 // Show first photo by default
-                showPhoto(1);
+                showPhoto('1a');
             }
         }
 
